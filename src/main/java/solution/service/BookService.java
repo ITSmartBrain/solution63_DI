@@ -1,5 +1,6 @@
 package solution.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import solution.domain.Book;
 import solution.domain.LibraryStats;
@@ -13,7 +14,8 @@ import java.util.Set;
 public class BookService {
     private List<Book> books = new ArrayList<>();
     private Set<String> authors = new HashSet<>();
-    private final LibraryStats libraryStats;
+    @Autowired
+    private LibraryStats libraryStats;
 
     public BookService(LibraryStats libraryStats) {
         this.libraryStats = libraryStats;

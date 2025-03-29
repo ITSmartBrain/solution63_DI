@@ -1,5 +1,6 @@
 package solution.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,11 +15,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/books")
 public class BookController {
-    private final BookService bookService;
+    @Autowired
+    private BookService bookService;
 
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
 
     @PostMapping
     public Book addBook(@RequestBody Book book) {
